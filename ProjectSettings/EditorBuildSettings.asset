@@ -6,6 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Hagia Sophia/Scenes/Prototyp.unity
-    guid: 046aebde939ddb345af7beae58147f58
+    path: Assets/Hagia Sophia/Scenes/V1.unity
+    guid: 6b287d2bda2af8746b418417a590d5e0
   m_configObjects: {}
