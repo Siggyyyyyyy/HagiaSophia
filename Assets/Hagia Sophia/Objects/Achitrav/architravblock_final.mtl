@@ -1,0 +1,13 @@
+# Blender 3.5.1 MTL File: 'architravblock_01.blend'
+# www.blender.org
+
+newmtl lowpoly_01_u1_v1
+Ns 4.999998
+Ka 1.000000 1.000000 1.000000
+Ks 1.000000 1.000000 1.000000
+Ke 0.000000 0.000000 0.000000
+Ni 1.450000
+illum 2
+map_Kd lowpoly_01_u1_v1_diffuse.png
+map_d lowpoly_01_u1_v1_diffuse_01.png
+map_Bump -bm 1.000000 lowpoly_01_u1_v1_normal.png
