@@ -3,16 +3,29 @@ using System.Collections;
 
 public class BuildingPlacementMover : MonoBehaviour
 {
-    public Transform buildingTarget; // Ziel im Gebäude (im Inspector setzen)
+    [Header("Zielposition im Gebäude")]
+    public Transform buildingTarget;
+
+    [Header("Animationseinstellungen")]
+    public float moveDuration = 1.2f;
+
     private Vector3 originalPosition;
     private Quaternion originalRotation;
 
-    public float moveDuration = 1.2f;
-
     private bool isMoved = false;
     private Coroutine moveCoroutine;
+    private CameraFollower cameraFollower;
 
     void Start()
+    {
+        if (Camera.main != null)
+            cameraFollower = Camera.main.GetComponent<CameraFollower>();
+    }
+
+    /// <summary>
+    /// Speichert aktuelle Position & Rotation – z. B. beim Betreten der Detailansicht aufrufen
+    /// </summary>
+    public void SetCurrentAsOriginal()
     {
         originalPosition = transform.position;
         originalRotation = transform.rotation;
@@ -20,24 +33,32 @@ public class BuildingPlacementMover : MonoBehaviour
 
     public void MoveToBuilding()
     {
-        if (!isMoved)
-        {
-            if (moveCoroutine != null) StopCoroutine(moveCoroutine);
-            moveCoroutine = StartCoroutine(MoveOverTime(transform.position, buildingTarget.position,
-                                                         transform.rotation, buildingTarget.rotation));
-            isMoved = true;
-        }
+        if (isMoved) return;
+
+        if (cameraFollower != null)
+            cameraFollower.StartFollowing(transform);
+
+        if (moveCoroutine != null)
+            StopCoroutine(moveCoroutine);
+
+        moveCoroutine = StartCoroutine(MoveOverTime(transform.position, buildingTarget.position,
+                                                    transform.rotation, buildingTarget.rotation));
+        isMoved = true;
     }
 
     public void MoveBackToOriginal()
     {
-        if (isMoved)
-        {
-            if (moveCoroutine != null) StopCoroutine(moveCoroutine);
-            moveCoroutine = StartCoroutine(MoveOverTime(transform.position, originalPosition,
-                                                         transform.rotation, originalRotation));
-            isMoved = false;
-        }
+        if (!isMoved) return;
+
+        if (cameraFollower != null)
+            cameraFollower.StopFollowing();
+
+        if (moveCoroutine != null)
+            StopCoroutine(moveCoroutine);
+
+        moveCoroutine = StartCoroutine(MoveOverTime(transform.position, originalPosition,
+                                                    transform.rotation, originalRotation));
+        isMoved = false;
     }
 
     private IEnumerator MoveOverTime(Vector3 startPos, Vector3 endPos, Quaternion startRot, Quaternion endRot)
@@ -46,8 +67,9 @@ public class BuildingPlacementMover : MonoBehaviour
 
         while (elapsed < moveDuration)
         {
-            transform.position = Vector3.Lerp(startPos, endPos, elapsed / moveDuration);
-            transform.rotation = Quaternion.Slerp(startRot, endRot, elapsed / moveDuration);
+            float t = elapsed / moveDuration;
+            transform.position = Vector3.Lerp(startPos, endPos, t);
+            transform.rotation = Quaternion.Slerp(startRot, endRot, t);
             elapsed += Time.deltaTime;
             yield return null;
         }

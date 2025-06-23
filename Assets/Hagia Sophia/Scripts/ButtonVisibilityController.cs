@@ -8,9 +8,7 @@ public class ButtonVisibilityController : MonoBehaviour
     public GameObject backButton;
 
     public GameObject infoButton;
-    public GameObject fundstelleButton;
     public GameObject gebäudeButton;
-    public GameObject detailButton;
 
     private bool isInDetailMode = false;
 
@@ -39,9 +37,7 @@ public class ButtonVisibilityController : MonoBehaviour
 
         backButton.SetActive(false);
         infoButton.SetActive(false);
-        fundstelleButton.SetActive(false);
         gebäudeButton.SetActive(false);
-        detailButton.SetActive(false);
 
     }
 
@@ -55,9 +51,7 @@ public class ButtonVisibilityController : MonoBehaviour
 
         backButton.SetActive(true);
         infoButton.SetActive(true);
-        fundstelleButton.SetActive(true);
         gebäudeButton.SetActive(true);
-        detailButton.SetActive(true);
 
     }
 }
