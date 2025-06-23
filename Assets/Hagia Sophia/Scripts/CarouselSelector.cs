@@ -99,7 +99,7 @@ public class CarouselSelector : MonoBehaviour
     {
         float elapsed = 0f;
         Vector3 startPos = obj.transform.position;
-        Vector3 targetPos = startPos + Vector3.up * 2f;
+        Vector3 targetPos = startPos + Vector3.up * 1f;
         Quaternion startRot = obj.transform.rotation;
         Quaternion targetRot = Quaternion.Euler(0, 180, 0);
 
