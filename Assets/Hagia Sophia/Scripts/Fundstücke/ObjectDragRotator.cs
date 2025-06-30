@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+
 
 public class ObjectDragRotator : MonoBehaviour
 {
@@ -7,11 +9,34 @@ public class ObjectDragRotator : MonoBehaviour
 
     private bool isDragging = false;
     private Vector3 lastMousePosition;
-    private Vector2 currentVelocity; 
+    private Vector2 currentVelocity;
 
+    private bool readyForInput = false;
+
+    void OnEnable()
+    {
+        ResetRotationInput(); // Jedes Mal beim Aktivieren zurücksetzen
+    }
+
+    public void ResetRotationInput()
+    {
+        isDragging = false;
+        currentVelocity = Vector2.zero;
+        readyForInput = false;
+        StartCoroutine(EnableInputNextFrame());
+    }
+
+    private IEnumerator EnableInputNextFrame()
+    {
+        yield return null; // 1 Frame warten
+        readyForInput = true;
+    }
 
     void Update()
     {
+        if (!readyForInput)
+            return;
+
         if (Input.GetMouseButtonDown(0))
         {
             isDragging = true;
@@ -27,7 +52,7 @@ public class ObjectDragRotator : MonoBehaviour
         if (isDragging)
         {
             Vector3 delta = Input.mousePosition - lastMousePosition;
-            currentVelocity = new Vector2(-delta.x, delta.y); 
+            currentVelocity = new Vector2(-delta.x, delta.y);
             ApplyRotation(currentVelocity);
             lastMousePosition = Input.mousePosition;
         }

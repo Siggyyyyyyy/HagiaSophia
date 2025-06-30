@@ -23,15 +23,18 @@ public class RotateManager : MonoBehaviour
     }
 
     private IEnumerator EnableWithDelay()
-    {
-        yield return new WaitForSeconds(activationDelay);
+{
+    yield return new WaitForSeconds(activationDelay);
 
-        foreach (var rotator in Resources.FindObjectsOfTypeAll<ObjectDragRotator>())
+    foreach (var rotator in Resources.FindObjectsOfTypeAll<ObjectDragRotator>())
+    {
+        if (rotator.gameObject.scene.IsValid())
         {
-            if (rotator.gameObject.scene.IsValid())
-            {
-                rotator.enabled = true;
-            }
+            rotator.enabled = true;
+            rotator.ResetRotationInput(); // <- Input zurücksetzen
         }
     }
+}
+
+
 }
