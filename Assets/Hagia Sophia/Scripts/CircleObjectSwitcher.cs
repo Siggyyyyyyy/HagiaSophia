@@ -5,12 +5,12 @@ using UnityEngine.UI;
 
 public class CircleObjectSwitcher : MonoBehaviour
 {
-    public GameObject[] objects; // Die Objekte, die im Kreis angeordnet werden
-    public float radius = 5f; // Der Radius des Kreises
-    public float rotationDuration = 0.5f; // Dauer der Drehung zwischen den Objekten
+    public GameObject[] objects; 
+    public float radius = 5f; 
+    public float rotationDuration = 0.5f; 
 
-    private bool isRotating = false; // Ob eine Animation gerade läuft
-    private float angleStep; // Schrittweite des Winkels zwischen Objekten
+    private bool isRotating = false; 
+    private float angleStep; 
 
     void Start()
     {
@@ -23,7 +23,7 @@ public class CircleObjectSwitcher : MonoBehaviour
         for (int i = 0; i < objects.Length; i++)
         {
             float angle = Mathf.Deg2Rad * (i * angleStep);
-            Vector3 position = new Vector3(Mathf.Cos(angle) * radius, 7, Mathf.Sin(angle) * radius); // Höhe auf 7 gesetzt
+            Vector3 position = new Vector3(Mathf.Cos(angle) * radius, 7, Mathf.Sin(angle) * radius); 
             objects[i].transform.position = position;
         }
     }
@@ -54,7 +54,7 @@ public class CircleObjectSwitcher : MonoBehaviour
         while (elapsedTime < rotationDuration)
         {
             elapsedTime += Time.deltaTime;
-            float t = Mathf.SmoothStep(0, 1, elapsedTime / rotationDuration); // EaseInOut-Bewegung
+            float t = Mathf.SmoothStep(0, 1, elapsedTime / rotationDuration); 
             float stepAngle = Mathf.Lerp(0, rotationAngle, t) - currentAngle;
             currentAngle += stepAngle;
 

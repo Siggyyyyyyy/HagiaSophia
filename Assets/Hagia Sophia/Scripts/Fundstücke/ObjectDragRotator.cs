@@ -7,7 +7,7 @@ public class ObjectDragRotator : MonoBehaviour
 
     private bool isDragging = false;
     private Vector3 lastMousePosition;
-    private Vector2 currentVelocity;  // Speichert die letzte Mausbewegung
+    private Vector2 currentVelocity; 
 
 
     void Update()
@@ -27,7 +27,7 @@ public class ObjectDragRotator : MonoBehaviour
         if (isDragging)
         {
             Vector3 delta = Input.mousePosition - lastMousePosition;
-            currentVelocity = new Vector2(-delta.x, delta.y); // Umwandlung in Richtung
+            currentVelocity = new Vector2(-delta.x, delta.y); 
             ApplyRotation(currentVelocity);
             lastMousePosition = Input.mousePosition;
         }

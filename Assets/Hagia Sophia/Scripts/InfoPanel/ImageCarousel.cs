@@ -3,8 +3,8 @@ using UnityEngine.UI;
 
 public class ImageCarousel : MonoBehaviour
 {
-    public Image displayImage;           // Das UI-Image, in dem das aktuelle Bild angezeigt wird
-    public Sprite[] imageOptions;        // Die Bildliste, durch die rotiert werden soll
+    public Image displayImage;           
+    public Sprite[] imageOptions;        
     
 
     private int currentIndex = 0;

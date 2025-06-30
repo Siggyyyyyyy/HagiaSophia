@@ -14,17 +14,8 @@ public class BuildingPlacementMover : MonoBehaviour
 
     private bool isMoved = false;
     private Coroutine moveCoroutine;
-    private CameraFollower cameraFollower;
 
-    void Start()
-    {
-        if (Camera.main != null)
-            cameraFollower = Camera.main.GetComponent<CameraFollower>();
-    }
-
-    /// <summary>
-    /// Speichert aktuelle Position & Rotation – z. B. beim Betreten der Detailansicht aufrufen
-    /// </summary>
+   
     public void SetCurrentAsOriginal()
     {
         originalPosition = transform.position;
@@ -34,9 +25,6 @@ public class BuildingPlacementMover : MonoBehaviour
     public void MoveToBuilding()
     {
         if (isMoved) return;
-
-        if (cameraFollower != null)
-            cameraFollower.StartFollowing(transform);
 
         if (moveCoroutine != null)
             StopCoroutine(moveCoroutine);
@@ -49,9 +37,6 @@ public class BuildingPlacementMover : MonoBehaviour
     public void MoveBackToOriginal()
     {
         if (!isMoved) return;
-
-        if (cameraFollower != null)
-            cameraFollower.StopFollowing();
 
         if (moveCoroutine != null)
             StopCoroutine(moveCoroutine);

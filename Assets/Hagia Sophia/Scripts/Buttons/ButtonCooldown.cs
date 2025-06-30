@@ -5,7 +5,7 @@ using System.Collections;
 [RequireComponent(typeof(Button))]
 public class ButtonCooldown : MonoBehaviour
 {
-    public float cooldownTime = 1.0f; // Zeit in Sekunden, in der der Button deaktiviert ist
+    public float cooldownTime = 1.0f;
 
     private Button button;
 

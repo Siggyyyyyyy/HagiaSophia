@@ -154,7 +154,6 @@ public class CarouselSelector : MonoBehaviour
         obj.transform.position = targetPos;
         obj.transform.rotation = targetRot;
 
-        // Warten auf Abschluss der Rücksetz-Animation, bevor das Spin-Skript wieder aktiviert wird
         yield return new WaitForSeconds(0.1f); 
 
         EnableSpin(obj);

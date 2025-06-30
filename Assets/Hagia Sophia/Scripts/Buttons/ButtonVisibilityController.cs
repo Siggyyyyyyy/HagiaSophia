@@ -7,7 +7,7 @@ public class ButtonVisibilityController : MonoBehaviour
     public GameObject selectButton;
     public GameObject backButton;
 
-    public GameObject infoButton;
+    // public GameObject infoButton; // vorübergehend deaktiviert
     public GameObject gebäudeButton;
 
     private bool isInDetailMode = false;
@@ -36,9 +36,8 @@ public class ButtonVisibilityController : MonoBehaviour
         selectButton.SetActive(true);
 
         backButton.SetActive(false);
-        infoButton.SetActive(false);
+        // infoButton.SetActive(false); // vorübergehend deaktiviert
         gebäudeButton.SetActive(false);
-
     }
 
     private void ShowDetailMode()
@@ -50,8 +49,7 @@ public class ButtonVisibilityController : MonoBehaviour
         selectButton.SetActive(false);
 
         backButton.SetActive(true);
-        infoButton.SetActive(true);
+        // infoButton.SetActive(true); // vorübergehend deaktiviert
         gebäudeButton.SetActive(true);
-
     }
 }

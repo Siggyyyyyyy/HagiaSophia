@@ -1,11 +1,11 @@
 using UnityEngine;
-using TMPro; // Wichtig für TextMeshPro
+using TMPro; 
 
 public class InfoTextRotator : MonoBehaviour
 {
-    public TMP_Text infoText;      // TextMeshPro-Textobjekt
-    public string[] texts;         // Liste mit allen möglichen Texten
-    private int currentIndex = 0;  // Aktueller Index des Textes
+    public TMP_Text infoText;     
+    public string[] texts;        
+    private int currentIndex = 0;  
 
     private void Start()
     {
@@ -15,18 +15,18 @@ public class InfoTextRotator : MonoBehaviour
             return;
         }
 
-        UpdateText(); // Starttext setzen
+        UpdateText(); 
     }
 
     public void NextText()
     {
-        currentIndex = (currentIndex + 1) % texts.Length; // Vorwärts rotieren
+        currentIndex = (currentIndex + 1) % texts.Length; 
         UpdateText();
     }
 
     public void PreviousText()
     {
-        currentIndex = (currentIndex - 1 + texts.Length) % texts.Length; // Rückwärts rotieren
+        currentIndex = (currentIndex - 1 + texts.Length) % texts.Length; 
         UpdateText();
     }
 

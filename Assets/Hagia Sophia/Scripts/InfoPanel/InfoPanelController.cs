@@ -4,9 +4,9 @@ using System.Collections;
 
 public class InfoPanelController : MonoBehaviour
 {
-    public RectTransform infoPanel;  // Das Info-Panel
-    public Button infoButton;        // Der Button zum Ein-/Ausblenden
-    public float slideDuration = 0.8f; // Langsamere Animation
+    public RectTransform infoPanel;  
+    public Button infoButton;        
+    public float slideDuration = 0.8f; 
 
     private bool isPanelOpen = false;
     private Vector2 hiddenPosition;
@@ -14,14 +14,14 @@ public class InfoPanelController : MonoBehaviour
 
     private void Start()
     {
-        // Ursprüngliche Position sichern
+        
         visiblePosition = infoPanel.anchoredPosition;
 
-        // Das Panel um seine eigene Breite nach rechts verschieben (ausblenden)
+        
         hiddenPosition = visiblePosition + new Vector2(infoPanel.rect.width, 0);
         infoPanel.anchoredPosition = hiddenPosition;
 
-        // Button-Klick-Event hinzufügen
+        
         infoButton.onClick.AddListener(TogglePanel);
     }
 

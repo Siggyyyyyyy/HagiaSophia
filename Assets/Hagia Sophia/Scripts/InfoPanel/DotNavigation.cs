@@ -20,7 +20,7 @@ public class DotNavigation : MonoBehaviour
         }
         dots.Clear();
 
-        // Neue Punkte erzeugen
+      
         for (int i = 0; i < count; i++)
         {
             GameObject dot = Instantiate(dotPrefab, dotContainer);
