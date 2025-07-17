@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class FrontManager : MonoBehaviour
 {
-     public GameObject[] previewVariants;        // Die Vorschau im Hintergrund
-    public GameObject[] buildingFrontVariants;  // Die echten Varianten im Zielobjekt
+     public GameObject[] previewVariants;        
+    public GameObject[] buildingFrontVariants;  
     private int currentIndex = 0;
 
     private void Start()

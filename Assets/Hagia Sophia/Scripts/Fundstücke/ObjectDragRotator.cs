@@ -15,7 +15,7 @@ public class ObjectDragRotator : MonoBehaviour
 
     void OnEnable()
     {
-        ResetRotationInput(); // Jedes Mal beim Aktivieren zurücksetzen
+        ResetRotationInput(); 
     }
 
     public void ResetRotationInput()
@@ -28,7 +28,7 @@ public class ObjectDragRotator : MonoBehaviour
 
     private IEnumerator EnableInputNextFrame()
     {
-        yield return null; // 1 Frame warten
+        yield return null; 
         readyForInput = true;
     }
 

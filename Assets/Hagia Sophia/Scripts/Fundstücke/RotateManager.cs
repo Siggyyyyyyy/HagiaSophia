@@ -4,7 +4,7 @@ using System.Linq;
 
 public class RotateManager : MonoBehaviour
 {
-    public float activationDelay = 1f; // Kleine Verzögerung, um Eingabe-Konflikte zu vermeiden
+    public float activationDelay = 1f;
 
     public void ActivateRotation()
     {
@@ -31,7 +31,7 @@ public class RotateManager : MonoBehaviour
         if (rotator.gameObject.scene.IsValid())
         {
             rotator.enabled = true;
-            rotator.ResetRotationInput(); // <- Input zurücksetzen
+            rotator.ResetRotationInput(); 
         }
     }
 }

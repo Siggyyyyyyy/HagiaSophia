@@ -4,14 +4,14 @@ using System.Collections;
 
 public class DelayedButtonActivator : MonoBehaviour
 {
-    public Button targetButton;            // Der Button, der verzögert aktiv sein soll
-    public float delayInSeconds = 0.5f;    // Verzögerung, z. B. 0.5 Sekunden
+    public Button targetButton;           
+    public float delayInSeconds = 0.5f;    
 
     private void OnEnable()
     {
         if (targetButton != null)
         {
-            targetButton.interactable = false; // Sofort deaktivieren
+            targetButton.interactable = false; // sofort deaktivieren
             StartCoroutine(EnableButtonAfterDelay());
         }
     }

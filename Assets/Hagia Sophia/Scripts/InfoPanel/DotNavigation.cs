@@ -4,8 +4,8 @@ using System.Collections.Generic;
 
 public class DotNavigation : MonoBehaviour
 {
-    public GameObject dotPrefab; // Dein Punkt-Prefab
-    public Transform dotContainer; // Der UI-Container, z. B. ein Horizontal Layout
+    public GameObject dotPrefab; 
+    public Transform dotContainer; 
     public Sprite activeSprite;
     public Sprite inactiveSprite;
 
